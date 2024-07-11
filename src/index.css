@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    min-width: 0;
+}
+
+body {
+    @apply bg-gray-100 antialiased text-gray-800;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @apply bg-zinc-950 text-gray-100;
+        color-scheme: dark;
+    }
+}
+
+input[type="date"], input[type="time"] {
+  position:relative;
+  overflow:hidden;
+  @apply text-gray-400 flex-1
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator, input[type="time"]::-webkit-calendar-picker-indicator {
+  display:block;
+  top:0;
+  left:0;
+  background: #0000;
+  position:absolute;
+  transform: scale(12);
+}
+
+.rdp-day_selected, .rdp-day_selected:focus-visible {
+  @apply bg-lime-300 text-lime-950
+}
+
+.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+  @apply bg-lime-400 text-lime-950
+}
+
+.rdp-day_selected:hover {
+  @apply bg-lime-300 text-lime-950
+}
+
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  @apply bg-zinc-200 dark:bg-zinc-700
+}
+
+.rdp-day_today:not(.rdp-day_selected) {
+  @apply text-lime-950 bg-zinc-200 dark:bg-zinc-700 dark:text-zinc-200;
+}
+
+.rdp-day_today:not(.rdp-day_outside){
+  font-weight: 400;
+}
